@@ -1,0 +1,52 @@
+name: CarVenta CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: Build & Verify (Node ${{ matrix.node-version }})
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: |
+            server/package-lock.json
+            client/package-lock.json
+
+      - name: Install Server Dependencies
+        working-directory: ./server
+        run: npm install
+
+      - name: Verify Server Syntax
+        working-directory: ./server
+        run: |
+          node --check server.js
+          node --check socket.js
+          node --check createSuperAdmin.js
+          node --check seedCars.js
+
+      - name: Install Client Dependencies
+        working-directory: ./client
+        run: npm install
+
+      - name: Build Client Bundle
+        working-directory: ./client
+        run: npm run build
+        env:
+          VITE_BASE_URL: http://localhost:3000
+          VITE_CURRENCY: $

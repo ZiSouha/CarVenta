@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Environment Variables (NEVER COMMIT SECRETS)
+.env
+.env.*
+*.env
+!.env.example
+
+# Uploads & Media Files
+uploads/*
+!uploads/.gitkeep
+uploads/damage-reports/*
+!uploads/damage-reports/.gitkeep
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Editor directories
+.vscode/
+.idea/
+.DS_Store

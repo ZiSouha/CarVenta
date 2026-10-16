@@ -1,0 +1,16 @@
+{
+    "short_name": "CarVenta",
+    "name": "CarVenta - Premium Car Rental",
+    "icons": [
+        {
+            "src": "favicon.png",
+            "sizes": "143x93",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "start_url": "/",
+    "display": "standalone",
+    "theme_color": "#06b6d4",
+    "background_color": "#ffffff"
+}

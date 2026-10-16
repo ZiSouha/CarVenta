@@ -1,0 +1,45 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "server": "nodemon server.js",
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "seed": "node seedCars.js",
+    "seed:cars": "node seedCars.js",
+    "create-admin": "node createSuperAdmin.js"
+  },
+  "keywords": [
+    "car-rental",
+    "fleet-management",
+    "react19",
+    "nodejs",
+    "express",
+    "mongodb",
+    "socketio"
+  ],
+  "author": "Ziane Souhayl",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.2.1",
+    "helmet": "^8.1.0",
+    "imagekit": "^6.0.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.17.1",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.12",
+    "socket.io": "^4.8.3",
+    "stripe": "^20.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
